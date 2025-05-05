@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        body{
+            display: grid;
+            justify-content: space-around;
+            background-color: black;
+        }
+
+        .creator{
+            padding: 15px;
+            color: aliceblue;
+            display: flex;
+            justify-content: center;
+        }
+
+        .calculator{
+            padding: 5px;
+            margin-top: 10vh;
+            background:linear-gradient(to right,blue,purple,rgb(59, 59, 95));
+            height: fit-content;
+            width: fit-content; 
+            border-radius: 15px;
+        }
+
+        input[type="button"]
+        {
+            width: 100px;
+            height: 100px;
+            font-size: xx-large;
+            background-color: rgb(194, 194, 240);
+            border-radius: 10px;
+        }
+
+        input[type="text"]
+        {
+            text-align: right;
+            padding: 10px;
+            width: 300px;
+            height: 80px;
+            font-size: xx-large;
+            border-radius: 15px;
+        }
+    </style>
+
+    <script>
+        function pick(val)
+        {
+            document.getElementById("val").value+=val;
+        }
+
+        function calculation()
+        {
+            expression = document.getElementById('val').value;
+            answer = eval(expression);
+            
+            if(!Number.isInteger(answer))
+            {
+                answer = answer.toFixed(5);
+            }
+
+            document.getElementById('val').value=answer;
+        }
+
+        function clearing()
+        {
+            document.getElementById("val").value="";
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="calculator">
+    <table>
+        <tr>
+            <th colspan="3"><input type="text" id="val"></th>
+            <th><input type="button" value="C" onclick="clearing()" style='background-color: rgb(228, 139, 139);'></th>
+        </tr>
+
+
+        <tr>
+            <th><input type="button" value="1" onclick="pick(1)"></th>
+            <th><input type="button" value="2" onclick="pick(2)"></th>
+            <th><input type="button" value="3" onclick="pick(3)"></th>
+            <th><input type="button" value="+" onclick="pick('+')" style="background-color: rgba(148, 148, 241, 0.774);"></th>
+        </tr>
+
+
+        <tr>
+            <th><input type="button" value="4" onclick="pick(4)"></th>
+            <th><input type="button" value="5" onclick="pick(5)"></th>
+            <th><input type="button" value="6" onclick="pick(6)"></th>
+            <th><input type="button" value="-" onclick="pick('-')" style="background-color: rgba(148, 148, 241, 0.774);"></th>
+        </tr>
+
+
+        <tr>
+            <th><input type="button" value="7" onclick="pick(7)"></th>
+            <th><input type="button" value="8" onclick="pick(8)"></th>
+            <th><input type="button" value="9" onclick="pick(9)"></th>
+            <th><input type="button" value="X" onclick="pick('*')" style="background-color: rgba(148, 148, 241, 0.774);"></th>
+        </tr>
+
+
+        <tr>
+            <th><input type="button" value="." onclick="pick('.')"></th>
+            <th><input type="button" value="0" onclick="pick(0)"></th>
+            <th><input type="button" value="=" onclick="calculation()" style="background-color: rgba(120, 241, 109, 0.884);"></th>
+            <th><input type="button" value="/" onclick="pick('/')" style="background-color: rgba(148, 148, 241, 0.774);"></th>
+        </tr>
+    </table>
+    </div>
+
+    <div class="creator">
+        <h3>Made by : Krish Karki</h3>
+    </div>
+
+</body>
+</html>
